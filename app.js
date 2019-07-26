@@ -9,9 +9,11 @@ const homeRoutes = require('./api/routes/home');
 
 let PORT = process.env.PORT || 3000;
 
+//Dotenv config
+require('dotenv').config();
+
 //Connection to the database
-let conString="mongodb+srv://yashwant:iamyashwant7062@test-zzd4w.mongodb.net/userAuth?retryWrites=true&w=majority";
-mongoose.connect(conString,{useNewUrlParser : true})
+mongoose.connect(process.env.CON_STRING,{useNewUrlParser : true})
         .then(() => console.log("connected to the database"))
         .catch(err => console.log(err));
 

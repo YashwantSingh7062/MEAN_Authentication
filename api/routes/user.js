@@ -40,7 +40,7 @@ router.post("/login",(req,res) => {
                         })
                     }
                     else if(hashResult){
-                        let token = jwt.sign({_id : result._id , email : result.email},"secretKey",{expiresIn : "1h"});
+                        let token = jwt.sign({_id : result._id , email : result.email},process.env.SECRET_KEY,{expiresIn : "1h"});
                         res.status(200).json({
                             message : "Auth Successful",
                             token
